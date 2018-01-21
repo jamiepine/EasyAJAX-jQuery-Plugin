@@ -60,7 +60,7 @@ Here's an example of how our data is saved:
     }
 As you can see the `formElements` **key** has a **value** that is an array. Obviously regular links will not have a `formElements` field so this conveniently won't show up unless you're using a form. 
 
-### Forms
+### CSRF Tokens
 
 The `_token` value is the CSRF token. If you don't know what a CSRF token is, this probably won't matter to you, but I recommend you look it up. It's a pretty important security measure needed when submitting POST requests. The name **_token** lines up with PHP framework Laravel's expectations for what the CSRF token should be called, so if you're using that this'll work a treat. If you need to change the name, I'll implement an option to do that soon, for now just find change it in the the plugin JS file.
 

@@ -68,6 +68,12 @@ function prepareAjaxObject(l, f) {
 
         ad['ajaxSucsessAction'] = aSa;
     }
+    if ($(id).is("[ajax-container]")) {
+
+        var ac = $(id).attr('ajax-container');
+
+        ad['ajaxContainer'] = ac;
+    }
     if ($(id).is("[csrf-token]")) {
 
         var csrf = $(id).attr('csrf-token');
@@ -83,10 +89,10 @@ function prepareAjaxObject(l, f) {
 
     console.log(ad);
 
-    ajaxSend(ad);
+    ajaxSend(ad, id);
 }
 
-function ajaxSend(ad) {
+function ajaxSend(ad, id) {
 
     $.ajax({
         type: "POST",
@@ -94,7 +100,8 @@ function ajaxSend(ad) {
         data: ad,
         success: function(response) {
             if (response) {
-                ajaxSuccess(response, ad);
+                ajaxSuccess(response, ad, id);
+                console.log("loaded");
             }
         },
         error: function(response) {
@@ -104,13 +111,24 @@ function ajaxSend(ad) {
 
 };
 
-function ajaxSuccess(response, ad) {
+function ajaxSuccess(response, ad, id) {
 
-  var sa = ad["ajaxSucsessAction"];
+  if (ad['ajaxSucsessAction'] !== undefined & ad['ajaxContainer'] !== undefined) {
 
-  if (sa == "msg") {
-    //do something (finish later, night)
+    var sa = ad["ajaxSucsessAction"];
+    var view = ad['ajaxContainer']; 
+
+      if (sa == "load") {
+        $(view).hide().fadeOut();
+        $(view).empty().append(response);
+        $(view).fadeIn();
+        $(id).addClass("active");
+
+        console.log("Loaded " + id + " into the " + view + " container successfully.");
+      }
+
   }
+
 
 }
 

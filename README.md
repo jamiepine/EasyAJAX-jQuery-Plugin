@@ -26,12 +26,12 @@ We do need some more parameters in order to actually make the link clickable.
 
 ### Parameters
 Here's a list of all the supported parameters and their purpose:
-| Parameter        | Action           | Accepts Value  |
-| ------------- |:-------------:| -----:|
-| `ajax-enable`     | Enables EasyAJAX plugin on element | *No* |
-| `ajax-action`      | The URL of the POST action      |   *Yes* |
-| `ajax-success` | Actions for success event    |    *Yes* |
-| `csrf-token` | Field for CSRF token      |    *Yes* |
+| Parameter | Action | Accepts Value |
+|-----|-----|-----|
+| `ajax-enable` | Enables EasyAJAX plugin on element |*No*
+| `ajax-action` |  The URL of the POST action | *Yes*
+| `ajax-success` | Actions for success event |*Yes*
+| `csrf-token` |  Field for CSRF token | *Yes*
 
 We'll go through each of these individually below, but first here's a little about how forms are handled.
 

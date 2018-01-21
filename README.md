@@ -26,6 +26,7 @@ We do need some more parameters in order to actually make the link clickable.
 
 ### Parameters
 Here's a list of all the supported parameters and their purpose:
+
 | Parameter | Action | Accepts Value |
 |-----|-----|-----|
 | `ajax-enable` | Enables EasyAJAX plugin on element |*No*

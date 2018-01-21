@@ -113,12 +113,12 @@ function ajaxSend(ad, id) {
 
 function ajaxSuccess(response, ad, id) {
 
-  if (ad['ajaxSucsessAction'] !== undefined & ad['ajaxContainer'] !== undefined) {
+  if (ad['ajaxSucsessAction'] !== undefined) {
 
     var sa = ad["ajaxSucsessAction"];
     var view = ad['ajaxContainer']; 
 
-      if (sa == "load") {
+      if (sa == "load" & ad['ajaxContainer'] !== undefined) {
         $(view).hide().fadeOut();
         $(view).empty().append(response);
         $(view).fadeIn();
@@ -126,6 +126,11 @@ function ajaxSuccess(response, ad, id) {
 
         console.log("Loaded " + id + " into the " + view + " container successfully.");
       }
+
+      if (sa == "custom") {
+        ajaxCustomAction(id);
+      }
+
 
   }
 

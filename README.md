@@ -31,7 +31,8 @@ Here's a list of all the supported parameters and their purpose:
 |-----|-----|-----|
 | `ajax-enable` | Enables EasyAJAX plugin on element |*No*
 | `ajax-action` |  The URL of the POST action | *Yes*
-| `ajax-success` | Actions for success event |*Yes*
+| `ajax-success` | Action for success event |*Yes*
+| `ajax-container` | HTML tag to append AJAX result |*Yes*
 | `csrf-token` |  Field for CSRF token | *Yes*
 
 We'll go through each of these individually below, but first here's a little about how forms are handled.
@@ -63,9 +64,18 @@ As you can see the `formElements` **key** has a **value** that is an array. Obvi
 
 The `_token` value is the CSRF token. If you don't know what a CSRF token is, this probably won't matter to you, but I recommend you look it up. It's a pretty important security measure needed when submitting POST requests. The name **_token** lines up with PHP framework Laravel's expectations for what the CSRF token should be called, so if you're using that this'll work a treat. If you need to change the name, I'll implement an option to do that soon, for now just find change it in the the plugin JS file.
 
+### Actions
+Using the `ajax-action` tag, choose from a set of preset actions or create your own through jQuery.
 
+Usage: `ajax-action="load"`
 
+| Parameter | Action | `ajax-container` |
+|-----|-----|-----|
+| `load` | Enables EasyAJAX plugin on element |*Yes*
+| `msg` |  The URL of the POST action | *Yes*
+| `custom` | Action for success event |*Yes*
 
+**Custom Actions**
+Create a custom action by pasting this script just before your `</body>` tag.
 
-
-
+    

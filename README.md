@@ -28,13 +28,17 @@ We do need some more parameters in order to actually make the link clickable.
 ### Parameters
 Here's a list of all the supported parameters and their purpose:
 
+
 | Parameter | Action | Accepts Value |
 |-----|-----|-----|
 | `ajax-enable` | Enables EasyAJAX plugin on element |*No*
 | `ajax-action` |  The URL of the POST action | *Yes*
 | `ajax-success` | Action for success event |*Yes*
-| `ajax-container` | HTML tag to append AJAX result |*Yes*
+| `ajax-container` | Instructs where to place HTML results |*Yes*
+| `[ajax-container-default]` |  If no `ajax-container` is specified, use this once on the default DIV for results on this page | *No*
 | `csrf-token` |  Field for CSRF token | *Yes*
+
+
 
 We'll go through each of these individually below, but first here's a little about how forms are handled.
 
@@ -70,15 +74,31 @@ Using the `ajax-action` tag, choose from a set of preset actions or create your 
 
 Usage: `ajax-action="load"`
 
-
-| Parameter | Action 
-|-----|-----|
-| `load` | Inserts server response as HTML inside the  `ajax-container` HTML tag (eg. div, main, #container) 
-| `msg` |  Displays an inline alert box at the `ajax-container`
+| Parameter | Action |
+|-----|-----|-----|
+| `load` | Inserts server response as HTML inside the  `ajax-container` HTML tag (eg. div, main, #container)
+| `msg` |  Displays an inline alert box at the `ajax-container` 
 | `custom` | Create your own success action (see below) 
 
 **Custom Actions**
 
 Create a custom action by pasting this script just before your `</body>` tag.
+```javascript
+ajaxCustomAction(id) {
 
+}
+```
+**Results Containers**
+There are several ways to specify a container to append the server response to, whether you're displaying a success message or loading in an entire page through AJAX. 
+
+The first way is to specify the `ajax-container` directly on the link like so:
+```html
+<a href="#" ajax-enable ajax-container="#main" id="about">About Me</a>
+```
+The second way 
+
+**PHP Examples**
+
+**PHP Examples**
     
+

@@ -30,9 +30,16 @@ function prepareAjaxObject(l, f) {
 
     var ad = {}
 
+
+    if (l !== false) {
+
+      var id = l;
+
+    }
+
     if (f !== false) {
 
-        ad['formElements'] = [];
+      ad['formElements'] = [];
 
         $(f).find('input, select').each(function() {
 
@@ -47,13 +54,9 @@ function prepareAjaxObject(l, f) {
             ad.formElements.push(eO);
 
         });
-        var id = f;
+      var id = f;
     }
 
-    if (l !== false) {
-
-        var id = l;
-    }
     if ($(id).is("[ajax-action]")) {
 
         var aa = $(id).attr('ajax-action');
@@ -73,6 +76,17 @@ function prepareAjaxObject(l, f) {
         var ac = $(id).attr('ajax-container');
 
         ad['ajaxContainer'] = ac;
+
+    } else if ($(document).find('[ajax-container-default]')) {
+
+        var ac = $('[ajax-container-default]').attr('id');
+
+        if (ac === undefined) {
+          alert('Default container needs an ID field!');
+        }
+
+        ad['ajaxContainer'] = ac;
+
     }
     if ($(id).is("[csrf-token]")) {
 
@@ -101,7 +115,6 @@ function ajaxSend(ad, id) {
         success: function(response) {
             if (response) {
                 ajaxSuccess(response, ad, id);
-                console.log("loaded");
             }
         },
         error: function(response) {
@@ -109,7 +122,7 @@ function ajaxSend(ad, id) {
         }
     });
 
-};
+}
 
 function ajaxSuccess(response, ad, id) {
 

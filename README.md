@@ -1,4 +1,5 @@
 
+
 # EasyAJAX jQuery Plugin
 
 An incredibly useful jQuery plugin to implement AJAX loading / form submission into any website or app, with full support for CSRF tokens. EasyAJAX uses HTML markup and tags to add AJAX to any link / form. 
@@ -69,13 +70,14 @@ Using the `ajax-action` tag, choose from a set of preset actions or create your 
 
 Usage: `ajax-action="load"`
 
-| Parameter | Action | `ajax-container` |
+| Parameter | Action |
 |-----|-----|-----|
-| `load` | Enables EasyAJAX plugin on element |*Yes*
-| `msg` |  The URL of the POST action | *Yes*
-| `custom` | Action for success event |*Yes*
+| `load` | Inserts server response as HTML inside the  `ajax-container` HTML tag (eg. div, main, #container)
+| `msg` |  Displays an inline alert box at the `ajax-container` 
+| `custom` | Create your own success action (see below) 
 
 **Custom Actions**
+
 Create a custom action by pasting this script just before your `</body>` tag.
 
     

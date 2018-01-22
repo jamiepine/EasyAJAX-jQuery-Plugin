@@ -71,11 +71,11 @@ Using the `ajax-action` tag, choose from a set of preset actions or create your 
 Usage: `ajax-action="load"`
 
 
-| Parameter | Action | 
-|-----|-----|-----|
-| `load` | Inserts server response as HTML inside the  `ajax-container` HTML tag (eg. div, main, #container) | 
-| `msg` |  Displays an inline alert box at the `ajax-container`  | 
-| `custom` | Create your own success action (see below)  | 
+| Parameter | Action 
+|-----|-----|
+| `load` | Inserts server response as HTML inside the  `ajax-container` HTML tag (eg. div, main, #container) 
+| `msg` |  Displays an inline alert box at the `ajax-container`
+| `custom` | Create your own success action (see below) 
 
 **Custom Actions**
 
